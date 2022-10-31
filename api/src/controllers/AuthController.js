@@ -12,7 +12,6 @@ const controller = {
 			if (!checkUser) {
 				if (bcrypt.compareSync(password, user.password)) {
 					delete user.password
-					console.log(user)
 					return res.status(200).send(user)
 				}
 			} else {

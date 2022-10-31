@@ -4,7 +4,22 @@ import jwt from 'jsonwebtoken'
 import { consts } from '../consts.js'
 
 const controller = {
-	CHECK_TOKEN: async (req, res, next) => {},
+	CHECK_TOKEN: async (req, res, next) => {
+		try {
+			const token = req.get('Authorization')
+			if (!token) {
+				res.status(401).send({ message: 'Access denied, invalid token.' })
+			}
+			jwt.verify(token, consts.JWT_KEY, (err, decoded) => {
+				if (err || !decoded) {
+					return res.status(401).json({ message: 'Authentication error!' })
+				}
+				return res.status(200).send({})
+			})
+		} catch (error) {
+			res.status(500).send({ message: 'Server error.' })
+		}
+	},
 	LOGIN: async (req, res) => {
 		try {
 			const { email, password } = req.body
@@ -25,7 +40,7 @@ const controller = {
 				return res.status(500).send({ message: 'Wrong e-mail or password' })
 			}
 		} catch (error) {
-			res.status(500).send({ error: error.message, message: 'Server error.' })
+			res.status(500).send({ message: 'Server error.' })
 		}
 	},
 }

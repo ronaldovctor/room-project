@@ -7,7 +7,7 @@ const router = Router()
 router.post('/create', UserController.CREATE_USER)
 router.post('/login', AuthController.LOGIN)
 
-// router.use(AuthController.CHECK_TOKEN)
+router.use('/token/validate', AuthController.CHECK_TOKEN)
 router.patch('/user/edit', UserController.EDIT_USER)
 router.post('/user/delete', UserController.DELETE_USER)
 

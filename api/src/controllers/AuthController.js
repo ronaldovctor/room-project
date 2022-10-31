@@ -1,5 +1,7 @@
 import { User } from '../../models/User.js'
 import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import { consts } from '../consts.js'
 
 const controller = {
 	CHECK_TOKEN: async (req, res, next) => {},
@@ -11,8 +13,13 @@ const controller = {
 			const checkUser = password == '' || password == null || !user
 			if (!checkUser) {
 				if (bcrypt.compareSync(password, user.password)) {
+					const token = jwt.sign(
+						{ _id: user._id, email: user.email },
+						consts.JWT_KEY,
+						{ expiresIn: consts.JWT_EXPIRES }
+					)
 					delete user.password
-					return res.status(200).send(user)
+					return res.status(200).send({ token, ...user })
 				}
 			} else {
 				return res.status(500).send({ message: 'Wrong e-mail or password' })

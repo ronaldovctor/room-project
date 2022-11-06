@@ -1,0 +1,141 @@
+[
+   {
+      "name": "Oblivion",
+      "type": "movie",
+      "category": ["Ficção científica", "Ação"],
+      "size": "2h 4m",
+      "year": 2012,
+      "pg": 12,
+      "imdb": {
+         "rate": 7.0,
+         "votes": 523.991
+      },
+      "synopsis": "Em 2077, Jack Harper é o responsável pela manutenção de equipamentos de segurança em um planeta Terra irreconhecível, que foi destruído por uma raça alienígena. O que restou da humanidade vive hoje em uma colônia lunar, para onde Jack irá assim que terminar seu trabalho na Terra. Porém um dia, ele encontra a espaçonave de uma mulher e, ao conhecê-la, tudo o que Jack sabe até então é posto em dúvida, iniciando-se uma jornada em que ele precisará descobrir o que realmente aconteceu no passado.",
+      "src": "https://www.zing.cz/wp-content/uploads/2021/05/starfieldtomcruise.jpg"
+   },
+   {
+      "name": "Top Gun: Maverick",
+      "type": "movie",
+      "category": ["Ação", "Aventura"],
+      "size": "2h 11m",
+      "year": 2022,
+      "pg": 12,
+      "imdb": {
+         "rate": 8.4,
+         "votes": 413.906
+      },
+      "synopsis": "Depois de mais de 30 anos de serviço como um dos principais aviadores da Marinha, Pete \"Maverick\" Mitchell está de volta, rompendo os limites como um piloto de testes corajoso. No mundo contemporâneo das guerras tecnológicas, Maverick enfrenta drones e prova que o fator humano ainda é essencial."
+   },
+   {
+      "name": "Viúva Negra",
+      "type": "movie",
+      "category": ["Ação", "Ficção científica"],
+      "size": "2h 13m",
+      "year": 2021,
+      "pg": 12,
+      "imdb": {
+         "rate": 6.7,
+         "votes": 373.280
+      },
+      "synopsis": "Ao nascer, a Viúva Negra, então conhecida como Natasha Romanova, é entregue à KGB, que a prepara para se tornar sua agente suprema. Porém, o seu próprio governo tenta matá-la quando a União Soviética se desfaz.",
+      "src": "https://images.alphacoders.com/107/1074451.jpg"
+   },
+   {
+      "name": "007 No Time To Die",
+      "type": "movie",
+      "category": ["Ação", "Thriller"],
+      "size": "2h 43m",
+      "year": 2021,
+      "pg": 14,
+      "imdb": {
+         "rate": 7.3,
+         "votes": 394.039
+      },
+      "synopsis": "James Bond deixa o MI6 e se muda para a Jamaica, mas um antigo amigo aparece e pede sua ajuda para encontrar um cientista desaparecido. Bond mergulha no caso e percebe que a busca é, na verdade, uma corrida para salvar o mundo.",
+      "src": "https://images3.alphacoders.com/106/thumb-1920-1064725.jpg"
+   },
+   {
+      "name": "Kingsman: Serviço Secreto",
+      "type": "movie",
+      "category": ["Ação", "Aventura"],
+      "size": "2h 10m",
+      "year": 2014,
+      "pg": 16,
+      "imdb": {
+         "rate": 7.7,
+         "votes": 665.119
+      },
+      "synopsis": "Uma organização de espionagem recruta um jovem de rua rebelde, mas com um futuro promissor, para um programa de treinamento ultracompetitivo. O elegante agente Harry Hart vê muito potencial no jovem Eggsy, apesar do temperamento. Após passar pela intensa preparação do serviço secreto, Eggsy tem de enfrentar uma ameaça global que emerge de um gênio da tecnologia. O plano do vilanesco Richmond Valentine envolve erradicar o problema do aquecimento global por meio de uma matança em larga escala.",
+      "src": "https://wallpapercave.com/wp/wp1890959.jpg"
+   },
+   {
+      "name": "The Batman",
+      "type": "movie",
+      "category": ["Ação", "Aventura"],
+      "size": "2h 56m",
+      "year": 2022,
+      "pg": 14,
+      "imdb": {
+         "rate": 7.9,
+         "votes": 614.389
+      },
+      "synopsis": "Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.",
+      "src": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f05a9b5b-ead5-460e-8573-73ba2fff9cde/deswvz5-1bed0105-1ae2-447d-b456-851d78ae6d6f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2YwNWE5YjViLWVhZDUtNDYwZS04NTczLTczYmEyZmZmOWNkZVwvZGVzd3Z6NS0xYmVkMDEwNS0xYWUyLTQ0N2QtYjQ1Ni04NTFkNzhhZTZkNmYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.4ucBrWWja-Vddyya6aGODgn2xYXWCJbfFTsUqJZZ9ps"
+   },
+   {
+      "name": "John Wick 3: Parabellum",
+      "type": "movie",
+      "category": ["Ação", "Suspense"],
+      "size": "2h 11m",
+      "year": 2019,
+      "pg": 14,
+      "imdb": {
+         "rate": 7.4,
+         "votes": 340.653
+      },
+      "synopsis": "O lendário John Wick luta para sair de Nova York quando um contrato de 14 milhões de dólares faz dele o alvo dos maiores assassinos do mundo.",
+      "src": "https://quartaparede.com.br/wp-content/uploads/2022/03/john-wick-3.jpg"
+   },
+   {
+      "name": "Círculo de Fogo",
+      "type": "movie",
+      "category": ["Ficção científica", "Ação"],
+      "size": "2h 11m",
+      "year": 2013,
+      "pg": 12,
+      "imdb": {
+         "rate": 6.9,
+         "votes": 501.709
+      },
+      "synopsis": "Criaturas monstruosas conhecidas como Kaiju começam a emergir do mar. Para combatê-los, a humanidade desenvolve uma série de robôs gigantescos, os Jaegers. Cada um é controlado por duas pessoas por meio de uma conexão neural. Entretanto, mesmo os Jaegers se mostram insuficientes para derrotar os Kaiju. Diante deste cenário, a última esperança é um velho robô, que passa a ser comandado por um antigo piloto e uma pessoa em treinamento.",
+      "src": "https://ovicio.com.br/wp-content/uploads/pacificrim_jaegers_wallpaper.jpg"
+   },
+   {
+      "name": "O Esquadrão Suicida",
+      "type": "movie",
+      "category": ["Ação", "Aventura"],
+      "size": "2h 12m",
+      "year": 2021,
+      "pg": 16,
+      "imdb": {
+         "rate": 7.2,
+         "votes": 346.201
+      },
+      "synopsis": "O governo envia os supervilões mais perigosos do mundo para a remota ilha de Corto Maltese, repleta de inimigos. Armados com armas de alta tecnologia, eles viajam pela selva perigosa em uma missão de busca e destruição com o Coronel Rick Flag.",
+      "src": "https://images4.alphacoders.com/115/1156313.jpg"
+   },
+   {
+      "name": "Resgate",
+      "type": "movie",
+      "category": ["Ação", "Thriller"],
+      "size": "1h 56m",
+      "year": 2020,
+      "pg": 16,
+      "imdb": {
+         "rate": 6.7,
+         "votes": 202.099
+      },
+      "synopsis": "Em Bangladesh, o mercenário do mercado negro Tyler Rake luta para sobreviver durante a missão para resgatar o filho sequestrado de um chefe do crime internacional.",
+      "src": "https://www.torredevigilancia.com/wp-content/uploads/2020/04/1074445.jpg"
+   }
+]

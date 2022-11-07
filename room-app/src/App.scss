@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	--type-first: 'Nunito', sans-serif;
+	--type-second: 'Roboto', sans-serif;
+	--white-c1: #fff;
+	--white-c2: #bbb;
+	--pink-c1: #fb2576;
+	--black-c1: #080808;
+	--letter-spacing-1: 0.045rem;
+	font-family: var(--type-first);
+}
+
+ul {
+	list-style: none;
+}
+
+input {
+	width: 100%;
+}
+
+button,
+input {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	display: block;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+.container {
+	width: 100%;
+	margin: 0 2.5rem;
+}
+
+.AppContent {
+	min-height: 100vh;
+}

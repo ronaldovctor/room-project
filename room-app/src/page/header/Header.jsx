@@ -6,6 +6,7 @@ import { ReactComponent as Separator } from '../../assets/separator.svg'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { Dropdown } from '../../components/dropdown/Dropdown'
 import { useState } from 'react'
+import { Search } from '../../components/search/Search'
 
 export function Header() {
 	const categoryOptions = [
@@ -53,13 +54,19 @@ export function Header() {
 						</li>
 						<li
 							style={{ position: 'relative' }}
-							className={isCategoriesOpen ? styles.active : ''}
+							className={`${isCategoriesOpen ? styles.active : ''}`}
 						>
 							<div
 								className={styles.category}
 								onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
 							>
-								<p className={styles.optionName}>Categorias</p>
+								<p
+									className={`${styles.optionName} ${
+										isCategoriesOpen ? styles.active : ''
+									}`}
+								>
+									Categorias
+								</p>
 								<CaretDown weight="bold" size={22} color={'#fff'} />
 							</div>
 							<Dropdown
@@ -73,7 +80,7 @@ export function Header() {
 						<Logo />
 					</div>
 					<div>
-						<input type="text" name="" id="" />
+						<Search />
 					</div>
 				</div>
 				<div className={styles.navAccount}>
@@ -82,8 +89,16 @@ export function Header() {
 						className={styles.navUser}
 						onClick={() => setIsAccountOpen(!isAccountOpen)}
 					>
-						<div className={`${styles.user} ${isAccountOpen ? styles.active : ''}`}>
-							<p className={styles.userName}>Ronaldo V.</p>
+						<div
+							className={`${styles.user} ${isAccountOpen ? styles.active : ''} `}
+						>
+							<p
+								className={`${styles.userName} ${
+									isAccountOpen ? styles.active : ''
+								}`}
+							>
+								Ronaldo V.
+							</p>
 							<CaretDown weight="bold" size={22} color={'#fff'} />
 							<Dropdown
 								options={accountOptions}

@@ -10,7 +10,8 @@ function App() {
 		<div
 			className="App"
 			style={{
-				backgroundColor: 'gray',
+				background:
+					'url("https://images3.alphacoders.com/103/thumb-1920-1033561.jpg")',
 			}}
 		>
 			<BrowserRouter>

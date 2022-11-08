@@ -12,9 +12,15 @@
 		position: relative;
 		transition: 0.3s;
 
+		& + li {
+			margin-top: 0.5rem;
+		}
+
 		p {
 			color: var(--white-c2);
 			white-space: nowrap;
+			font-size: 1rem;
+			line-height: 1.125rem;
 
 			&:hover {
 				color: var(--white-c1);
@@ -32,9 +38,8 @@
 				background-color: var(--pink-c1);
 				border-radius: 50%;
 				top: 50%;
-				left: -0.8rem;
 				transform: translateY(-50%);
-				animation: leftDot 0.2s linear;
+				animation: leftDot 0.2s linear forwards;
 			}
 		}
 
@@ -63,10 +68,10 @@
 
 	@keyframes leftDot {
 		0% {
-			left: -15%;
+			left: -1.3rem;
 		}
 		100% {
-			left: -0.8rem;
+			left: -0.9rem;
 		}
 	}
 

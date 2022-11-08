@@ -34,12 +34,12 @@
 			padding: 0 1rem;
 			border-radius: 3px;
 			position: relative;
-			backdrop-filter: blur(2px);
+			backdrop-filter: var(--blur);
 			height: 100%;
 
 			a,
 			p {
-				font-weight: 700;
+				font-weight: 600;
 				font-size: 1.25rem;
 				line-height: 2rem;
 				letter-spacing: var(--letter-spacing-1);

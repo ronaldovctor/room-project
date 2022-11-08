@@ -7,10 +7,12 @@
 	--white-c1: #fff;
 	--white-c2: #bbb;
 	--pink-c1: #fb2576;
+	--pink-g1: linear-gradient(180deg, transparent 0%, #d1004f 100%);
 	--black-c1: #080808;
 	--black-c2: #181818;
 	--gray-c1: #717171;
 	--gray-c2: #292929;
+	--gray-g1: linear-gradient(180deg, transparent 0%, #585858 100%);
 	--letter-spacing-1: 0.045rem;
 	--blur: blur(5px);
 	font-family: var(--type-first);
@@ -45,5 +47,6 @@ img {
 }
 
 .AppContent {
-	min-height: 100vh;
+	position: relative;
+	height: calc(100vh + 120px + 10rem);
 }

@@ -1,10 +1,9 @@
-import { Login } from '../../components/login/Login'
+import { Header } from '../header/Header'
 
 export function Home() {
 	return (
 		<div>
-			Home
-			<Login />
+			<Header />
 		</div>
 	)
 }

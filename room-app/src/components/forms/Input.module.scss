@@ -1,0 +1,13 @@
+.inputRoot {
+	padding: 0.5rem 0.75rem;
+	background-color: var(--black-c2);
+	border: 1px solid var(--gray-c1);
+	border-radius: 3px;
+
+	input {
+		background: transparent;
+		border: none;
+		outline: none;
+		color: var(--white-c1);
+	}
+}

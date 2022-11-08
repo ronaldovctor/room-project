@@ -1,0 +1,174 @@
+.header {
+	position: fixed;
+	margin-top: 0.75rem;
+	width: 100vw;
+
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 3.625rem;
+		width: calc(100vw - 100px);
+
+		@mixin underlineStyle {
+			&:hover:not(.active)::after,
+			&.active::after {
+				content: '';
+				position: absolute;
+				bottom: -2px;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				border-radius: 5px;
+				background-color: var(--pink-c1);
+				animation: growunderline 0.2s linear;
+			}
+		}
+
+		.navFav,
+		.navMain,
+		.navUser {
+			display: flex;
+			align-items: center;
+			background-color: rgb(0, 0, 0, 0.5);
+			padding: 0 1rem;
+			border-radius: 3px;
+			position: relative;
+			backdrop-filter: var(--blur);
+			height: 100%;
+
+			a,
+			p {
+				font-weight: 600;
+				font-size: 1.25rem;
+				line-height: 2rem;
+				letter-spacing: var(--letter-spacing-1);
+			}
+		}
+
+		.navFav {
+			a {
+				display: flex;
+				align-items: center;
+				color: var(--white-c1);
+				span {
+					margin-left: 0.75rem;
+				}
+			}
+
+			span {
+				position: relative;
+				@include underlineStyle();
+			}
+		}
+
+		.navMain {
+			.options {
+				display: grid;
+				grid-template-columns: repeat(5, auto);
+				align-items: center;
+				gap: 1rem;
+
+				li {
+					color: var(--white-c1);
+
+					a {
+						color: inherit;
+						position: relative;
+					}
+
+					.optionName {
+						position: relative;
+						@include underlineStyle();
+					}
+
+					.category {
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+
+						p {
+							margin-right: 0.5rem;
+						}
+
+						svg {
+							transition: 0.2s;
+						}
+					}
+
+					&.active .category svg {
+						transform: rotate(180deg);
+					}
+				}
+			}
+
+			.logo {
+				display: flex;
+				align-items: center;
+				margin-inline: 4rem;
+
+				svg {
+					width: fit-content;
+					height: 2.375rem;
+				}
+			}
+		}
+
+		.navAccount {
+			display: flex;
+			align-items: center;
+			height: 100%;
+
+			.navUserIcon {
+				content: '';
+				position: inline-flex;
+				width: 3rem;
+				height: 3rem;
+				background: conic-gradient(
+					from 180deg at 50% 50%,
+					#ff0d0d 0deg,
+					#020064 136.88deg,
+					#9c06a9 290.63deg,
+					#ff0d0d 360deg
+				);
+				border-radius: 50%;
+				outline: 2px solid #fff;
+				margin-right: 0.75rem;
+			}
+
+			.user {
+				display: flex;
+				align-items: center;
+				position: relative;
+				gap: 0.675rem;
+				position: relative;
+				height: max-content;
+				margin: 1rem 0;
+				color: var(--white-c1);
+				cursor: pointer;
+
+				.userName {
+					position: relative;
+					@include underlineStyle();
+				}
+
+				svg {
+					transition: 0.2s;
+				}
+
+				&.active svg {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	@keyframes growunderline {
+		0% {
+			width: 0%;
+		}
+		100% {
+			width: 100%;
+		}
+	}
+}

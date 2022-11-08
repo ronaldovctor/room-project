@@ -7,13 +7,21 @@ import { Footer } from './page/footer/Footer'
 
 function App() {
 	return (
-		<div className="App">
+		<div
+			className="App"
+			style={{
+				background:
+					'url("https://images3.alphacoders.com/103/thumb-1920-1033561.jpg")',
+			}}
+		>
 			<BrowserRouter>
-				<Header />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="login" element={<Login />} />
-				</Routes>
+				<div className="AppContent">
+					<Header />
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="login" element={<Login />} />
+					</Routes>
+				</div>
 				<Footer />
 			</BrowserRouter>
 		</div>

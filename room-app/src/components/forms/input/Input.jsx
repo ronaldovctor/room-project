@@ -11,7 +11,7 @@ function InputRoot({ children, label, htmlFor }) {
 	)
 }
 
-function InputInput({ name, type, placeholder }) {
+function InputInput({ name, type, placeholder, value, onChange }) {
 	return (
 		<input
 			className={styles.inputInput}
@@ -19,6 +19,8 @@ function InputInput({ name, type, placeholder }) {
 			id={name}
 			type={type}
 			placeholder={placeholder}
+			value={value}
+			onChange={onChange}
 		/>
 	)
 }

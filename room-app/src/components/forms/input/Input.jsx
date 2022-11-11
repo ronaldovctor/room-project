@@ -1,17 +1,19 @@
+import { Error } from '../../helper/error/Error'
 import styles from './Input.module.scss'
 
-function InputRoot({ children, label, htmlFor }) {
+function InputRoot({ children, label, htmlFor, error }) {
 	return (
-		<>
+		<div className={styles.root}>
 			<label className={styles.label} htmlFor={htmlFor}>
 				{label}:
 			</label>
 			<div className={styles.inputRoot}>{children}</div>
-		</>
+			{error && <Error error={error} className={styles.error} />}
+		</div>
 	)
 }
 
-function InputInput({ name, type, placeholder, value, onChange }) {
+function InputInput({ name, type, placeholder, value, onChange, onBlur }) {
 	return (
 		<input
 			className={styles.inputInput}
@@ -21,6 +23,7 @@ function InputInput({ name, type, placeholder, value, onChange }) {
 			placeholder={placeholder}
 			value={value}
 			onChange={onChange}
+			onBlur={onBlur}
 		/>
 	)
 }

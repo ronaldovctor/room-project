@@ -1,58 +1,58 @@
-.inputRoot {
+.root {
 	display: grid;
-	grid-template-columns: auto 1fr;
-	padding: 0.5rem 0.75rem;
-	background-color: var(--black-c2);
-	border: 1px solid var(--gray-c1);
-	border-radius: 3px;
-	margin-top: 0.25rem;
-	transition: 0.2s;
+	gap: 0.25rem;
 
-	&:focus,
-	&:hover,
-	&:has(input:focus) {
-		filter: drop-shadow();
-		border-color: var(--pink-c1);
-		box-shadow: 0 0 3px var(--pink-c1);
+	.inputRoot {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		padding: 0.5rem 0.75rem;
+		background-color: var(--black-c2);
+		border: 1px solid var(--gray-c1);
+		border-radius: 3px;
+		transition: 0.2s;
 
-		& .inputIcon svg {
+		&:focus,
+		&:hover,
+		&:has(input:focus) {
+			filter: drop-shadow();
+			border-color: var(--pink-c1);
+			box-shadow: 0 0 3px var(--pink-c1);
+
+			& .inputIcon svg {
+				color: var(--white-c1);
+			}
+		}
+
+		input {
+			background: transparent;
+			border: none;
+			outline: none;
 			color: var(--white-c1);
+			font-size: 1rem;
+		}
+
+		.inputIcon {
+			width: 1.5rem;
+			height: 1.5rem;
+			margin-right: 0.75rem;
+
+			svg {
+				width: 100%;
+				height: 100%;
+				color: var(--gray-c1);
+			}
 		}
 	}
 
-	input {
-		background: transparent;
-		border: none;
-		outline: none;
+	label {
 		color: var(--white-c1);
-		font-size: 1rem;
+		font-size: 1.125rem;
+		line-height: 1.375rem;
+		letter-spacing: var(--letter-spacing-1);
+		font-weight: 700;
 	}
 
-	.inputIcon {
-		width: 1.5rem;
-		height: 1.5rem;
-		margin-right: 0.75rem;
-
-		svg {
-			width: 100%;
-			height: 100%;
-			color: var(--gray-c1);
-		}
-	}
-
-	&:not(:last-of-type) {
-		margin-bottom: 1rem;
-	}
-}
-
-label {
-	color: var(--white-c1);
-	font-size: 1.125rem;
-	line-height: 1.375rem;
-	letter-spacing: var(--letter-spacing-1);
-	font-weight: 700;
-
-	& + label {
-		margin-top: 1.25rem;
+	.error {
+		margin-top: -0.625rem;
 	}
 }

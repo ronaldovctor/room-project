@@ -11,6 +11,30 @@
 	background: var(--pink-c1);
 	position: relative;
 
+	&:disabled {
+		cursor: default;
+
+		&:active {
+			scale: 1;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: rgb(0, 0, 0, 0.4);
+			z-index: 20;
+		}
+
+		&:hover {
+			box-shadow: none;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
 	span {
 		position: relative;
 		z-index: 10;

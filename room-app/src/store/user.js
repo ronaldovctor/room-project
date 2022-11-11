@@ -1,6 +1,6 @@
 import createAsyncSlice from './helper/createAsyncSlice'
 44
-import { USER_EDIT, USER_LOGIN } from '../api/api.js'
+import { USER_CREATE, USER_EDIT, USER_LOGIN } from '../api/api.js'
 import useFetch from '../hooks/useFetch'
 
 const user = createAsyncSlice({

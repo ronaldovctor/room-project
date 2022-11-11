@@ -2,8 +2,8 @@ import styles from './Login.module.scss'
 import { Routes, Route } from 'react-router-dom'
 import { LoginForm } from './login-form/LoginForm'
 
-import bg from '../../assets/bg-login.jpg'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
+import { LoginCreate } from './login-create/LoginCreate'
 
 export function Login() {
 	return (
@@ -12,10 +12,8 @@ export function Login() {
 				<Logo />
 				<Routes>
 					<Route path="/" element={<LoginForm />} />
+					<Route path="/criar" element={<LoginCreate />} />
 				</Routes>
-			</div>
-			<div className={styles.bg}>
-				<img src={bg} alt="Background" />
 			</div>
 		</section>
 	)

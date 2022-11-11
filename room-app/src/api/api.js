@@ -47,6 +47,10 @@ export const USER_CREATE = (userInfos) => {
 	return {
 		url: `${API_URL}/create`,
 		options: {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 			body: JSON.stringify(userInfos),
 		},
 	}

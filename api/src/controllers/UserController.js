@@ -5,6 +5,7 @@ import { consts } from '../consts.js'
 const controller = {
 	CREATE_USER: async (req, res) => {
 		try {
+			console.log(req.body)
 			const { name, email, address, password } = req.body
 			const alreadyExists = await User.findOne({ name, email }).exec()
 

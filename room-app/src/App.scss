@@ -13,6 +13,7 @@
 	--gray-c1: #717171;
 	--gray-c2: #292929;
 	--gray-g1: linear-gradient(180deg, transparent 0%, #585858 100%);
+	--yellow-imdb: #ffb800;
 	--letter-spacing-1: 0.045rem;
 	--blur: blur(5px);
 	font-family: var(--type-first);
@@ -66,6 +67,13 @@ img {
 		inset: 0;
 		z-index: -50;
 		background: linear-gradient(292.94deg, #060017 0%, #140739 100%);
+	}
+
+	&.home::before {
+		background: rgb(0, 0, 0, 0.97);
+	}
+	&.home::after {
+		opacity: 0.15;
 	}
 }
 

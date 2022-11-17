@@ -1,5 +1,5 @@
 import './App.scss'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Home } from './page/home/Home'
 import { Login } from './components/login/Login'
 import { Footer } from './page/footer/Footer'
@@ -8,6 +8,12 @@ import store from './store/configureStore'
 import { ProtectedRoute } from './components/helper/ProtectedRoute'
 
 function App() {
+	function updateBg(className) {
+		const app = document.querySelector('.App')
+		const name = className ? `App ${className}` : 'App'
+		app.setAttribute('class', name)
+	}
+
 	return (
 		<div className="App">
 			<BrowserRouter>
@@ -18,11 +24,11 @@ function App() {
 								path="/"
 								element={
 									<ProtectedRoute>
-										<Home />
+										<Home updateBg={updateBg} />
 									</ProtectedRoute>
 								}
 							/>
-							<Route path="login/*" element={<Login />} />
+							<Route path="login/*" element={<Login updateBg={updateBg} />} />
 						</Routes>
 					</Provider>
 				</div>

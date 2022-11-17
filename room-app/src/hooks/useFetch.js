@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 
 function useFetch() {
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(true)
 	const [data, setData] = useState(null)
 	const [error, setError] = useState(null)
 
@@ -18,11 +18,13 @@ function useFetch() {
 				throw new Error(json.message)
 			}
 		} catch (error) {
+			console.log('sssss')
 			json = null
 			setError(error.message)
 		} finally {
-			setLoading(false)
 			setData(json)
+			setLoading(false)
+			console.log(data)
 			return {
 				response,
 				json,

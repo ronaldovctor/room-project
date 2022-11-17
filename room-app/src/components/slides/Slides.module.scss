@@ -1,0 +1,9 @@
+.slides {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 3rem;
+	width: 100%;
+	overflow: hidden;
+	margin-top: -100px;
+	padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+}

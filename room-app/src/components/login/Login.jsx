@@ -4,8 +4,13 @@ import { LoginForm } from './login-form/LoginForm'
 
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { LoginCreate } from './login-create/LoginCreate'
+import { useEffect } from 'react'
 
-export function Login() {
+export function Login({ updateBg }) {
+	useEffect(() => {
+		updateBg()
+	}, [])
+
 	return (
 		<section className={styles.forms}>
 			<div className={styles.form}>

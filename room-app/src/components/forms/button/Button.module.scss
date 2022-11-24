@@ -6,7 +6,6 @@
 	padding: 0.5rem 0.75rem;
 	border: none;
 	border-radius: 3px;
-	min-width: 7.25rem;
 	cursor: pointer;
 	background: var(--pink-c1);
 	position: relative;
@@ -31,6 +30,10 @@
 
 			&::after {
 				content: none;
+			}
+
+			&.secondary:hover {
+				box-shadow: none;
 			}
 		}
 	}
@@ -101,8 +104,41 @@
 		}
 
 		.icon {
-			width: 1.75rem;
-			height: 1.75rem;
+			width: 1.75em;
+			height: 1.75em;
+		}
+	}
+
+	&.rounded {
+		min-width: fit-content;
+		width: 3.125rem;
+		height: 3.125rem;
+		border-radius: 50%;
+
+		&:disabled {
+			&::before {
+				border-radius: 50%;
+			}
+
+			&.secondary:hover {
+				box-shadow: none;
+			}
+		}
+
+		&::after {
+			border-radius: 50%;
+		}
+
+		&.secondary {
+			background: var(--white-c1);
+
+			&:hover {
+				box-shadow: 0 0 1px var(--white-c1), 0 0 5px var(--white-c1);
+
+				&::after {
+					content: none;
+				}
+			}
 		}
 	}
 

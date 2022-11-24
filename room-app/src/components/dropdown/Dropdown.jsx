@@ -1,9 +1,9 @@
 import styles from './Dropdown.module.scss'
 
-export function Dropdown({ options, isOpen, setLine, width }) {
+export function Dropdown({ options, isOpen, setLine, width, className }) {
 	return (
 		<ul
-			className={`${styles.dropdown} ${isOpen ? styles.active : ''}`}
+			className={`${styles.dropdown} ${isOpen ? styles.active : ''} ${className}`}
 			style={
 				width !== undefined
 					? {

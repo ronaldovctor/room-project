@@ -1,0 +1,8 @@
+.episodes {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20.875rem, auto));
+	gap: 2rem;
+	place-content: center;
+	max-width: 1400px;
+	margin: 0 auto;
+}

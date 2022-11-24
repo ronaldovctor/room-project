@@ -49,6 +49,7 @@ img {
 
 .App {
 	position: relative;
+	min-width: 900px;
 
 	&::after {
 		content: '';
@@ -79,6 +80,7 @@ img {
 
 .AppContent {
 	position: relative;
+	margin: 0 auto !important;
 }
 
 .toTop {

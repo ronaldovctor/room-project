@@ -1,27 +1,29 @@
-import styles from './MovieDetails.module.scss'
+import styles from './ContentDetails.module.scss'
 import { ReactComponent as Separator } from '../../assets/separator.svg'
 import { Tag } from '../tags/Tags'
 
-export function MovieDetails() {
+export function ContentDetails({ data }) {
+	const { imdb, pg, year, size, category } = data
+
 	return (
 		<div className={styles.details}>
 			<div className={styles.imdb}>
 				<Tag.root>
-					<Tag.imdb score={8.1} />
+					<Tag.imdb score={imdb.rate} />
 				</Tag.root>
 				<Separator />
-				<p className={styles.imdbVotes}>10.525</p>
+				<p className={styles.imdbVotes}>{imdb.votes}</p>
 			</div>
 			<div className={styles.extras}>
 				<Tag.root>
-					<Tag.pg pg={18} />
+					<Tag.pg pg={pg} />
 				</Tag.root>
 				<Separator />
-				<p>2h 45m</p>
+				<p>{size}</p>
 				<Separator />
-				<p>Ação, Suspense</p>
+				<p>{category.join(', ')}</p>
 				<Separator />
-				<p>2019</p>
+				<p>{year}</p>
 			</div>
 		</div>
 	)

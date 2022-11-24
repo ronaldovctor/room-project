@@ -26,7 +26,6 @@ export function MainContent({ data }) {
 				title.current.innerHTML = html
 				clearInterval(interval)
 			}
-			console.log('passss...')
 		}, 200)
 	}
 

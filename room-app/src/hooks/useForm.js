@@ -28,7 +28,6 @@ function useForm(type) {
 			setError('Preencha o campo.')
 			return false
 		} else if (types[type] && !types[type].regex.test(val)) {
-			console.log(val)
 			setError(types[type].message)
 			return false
 		} else {
@@ -46,10 +45,7 @@ function useForm(type) {
 		value,
 		error,
 		onChange,
-		onBlur: () => {
-			console.log(value)
-			validate(value)
-		},
+		onBlur: () => validate(value),
 		validate: () => validate(value),
 	}
 }

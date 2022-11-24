@@ -7,6 +7,7 @@ import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { Dropdown } from '../../components/dropdown/Dropdown'
 import { useState } from 'react'
 import { Search } from '../../components/search/Search'
+import { useEffect } from 'react'
 
 export function Header() {
 	const categoryOptions = [
@@ -24,6 +25,11 @@ export function Header() {
 
 	const [isCategoriesOpen, setIsCategoriesOpen] = useState(false)
 	const [isAccountOpen, setIsAccountOpen] = useState(false)
+	const [isExploreOpen, setIsExploreOpen] = useState(false)
+
+	useEffect(() => {
+		isExploreOpen == false && setIsCategoriesOpen(false)
+	}, [isExploreOpen])
 
 	return (
 		<header className={styles.header}>
@@ -35,7 +41,19 @@ export function Header() {
 					</NavLink>
 				</div>
 				<div className={styles.navMain}>
-					<ul className={styles.options}>
+					<div
+						className={`${styles.explore} `}
+						onClick={() => setIsExploreOpen(!isExploreOpen)}
+					>
+						<p>Explorar</p>
+						<CaretDown
+							weight="bold"
+							size={22}
+							color={'#fff'}
+							className={`${isExploreOpen ? styles.active : ''}`}
+						/>
+					</div>
+					<ul className={`${styles.options} ${isExploreOpen ? styles.active : ''}`}>
 						<li>
 							<NavLink to="/series" className={styles.optionName}>
 								Séries
@@ -84,7 +102,15 @@ export function Header() {
 					</div>
 				</div>
 				<div className={styles.navAccount}>
-					<i className={styles.navUserIcon}></i>
+					<i className={styles.navUserIcon}>
+						<CaretDown
+							weight="bold"
+							size={22}
+							color={'#fff'}
+							className={styles.mediaArrow}
+						/>
+					</i>
+
 					<div
 						className={styles.navUser}
 						onClick={() => setIsAccountOpen(!isAccountOpen)}
@@ -104,6 +130,7 @@ export function Header() {
 								options={accountOptions}
 								isOpen={isAccountOpen}
 								setLine={false}
+								className={styles.moveDropDown}
 							/>
 						</div>
 					</div>

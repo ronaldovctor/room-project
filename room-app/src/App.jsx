@@ -6,6 +6,7 @@ import { Footer } from './page/footer/Footer'
 import { Provider } from 'react-redux'
 import store from './store/configureStore'
 import { ProtectedRoute } from './components/helper/ProtectedRoute'
+import { HomeContent } from './page/home-content/HomeContent'
 
 function App() {
 	function updateBg(className) {
@@ -29,6 +30,10 @@ function App() {
 								}
 							/>
 							<Route path="login/*" element={<Login updateBg={updateBg} />} />
+							<Route
+								path="content/*"
+								element={<HomeContent updateBg={updateBg} />}
+							/>
 						</Routes>
 					</Provider>
 				</div>

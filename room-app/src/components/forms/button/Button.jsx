@@ -1,11 +1,12 @@
 import styles from './Button.module.scss'
 
-function ButtonRoot({ children, className, type, size, ...props }) {
+function ButtonRoot({ children, className, type, size, rounded, ...props }) {
 	return (
 		<button
 			className={`${styles.button} ${className} ${
 				type === 'secondary' ? styles.secondary : ''
-			} ${size === 'lg' ? styles.lg : ''}`}
+			} ${size === 'lg' ? styles.lg : ''}
+			${rounded ? styles.rounded : ''}`}
 			{...props}
 		>
 			{children}

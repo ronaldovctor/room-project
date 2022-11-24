@@ -1,0 +1,51 @@
+.cardEpisode {
+	// width: 100%;
+	position: relative;
+
+	.cardEpisodeDesc {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		min-height: 20rem;
+
+		.desc {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: minmax(fit-content, 4rem) auto;
+			gap: 1.25rem;
+			color: var(--white-c1);
+			padding: 4rem 1rem 1rem 1rem;
+			margin-top: 30%;
+			background-image: linear-gradient(
+				transparent 10%,
+				rgba(0, 0, 0, 0.815) 28%,
+				rgb(0, 0, 0) 35%
+			);
+
+			.title {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 0.875rem;
+
+				p {
+					color: var(--white-c2);
+					font-weight: 700;
+					font-size: 1rem;
+				}
+			}
+
+			.synopsis {
+				color: var(--white-c2);
+				font-size: 0.75rem;
+				letter-spacing: var(--letter-spacing-1);
+				line-height: 1.125rem;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 5;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+		}
+	}
+}

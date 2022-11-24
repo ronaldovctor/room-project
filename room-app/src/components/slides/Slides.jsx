@@ -1,28 +1,20 @@
 import styles from './Slides.module.scss'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Slide } from './slide/Slide'
-import useFetch from '../../hooks/useFetch'
+import { NavLink } from 'react-router-dom'
 
-export function Slides({ categories }) {
+export function Slides({ categories, data }) {
 	const slides = useRef(null)
-
-	const { loading, data, request } = useFetch()
-	async function fetchContent() {
-		await request('./data.json')
-	}
-
-	useEffect(() => {
-		fetchContent()
-	}, [])
-
-	if (loading) return null
 
 	return (
 		<section className={`${styles.slides}`} ref={slides}>
 			{categories.map((categorie) => (
-				<div key={categorie}>
-					<h1 style={{ color: 'white' }}>{categorie}</h1>
-					<Slide parentRef={slides} content={data} />
+				<div key={categorie} className={styles.categorie}>
+					<div className={styles.name}>
+						<h1>{categorie}</h1>
+						<NavLink>veja mais</NavLink>
+					</div>
+					<Slide parentRef={slides} data={data} />
 				</div>
 			))}
 		</section>

@@ -1,11 +1,14 @@
 import styles from './Slide.module.scss'
-import { useEffect, useRef } from 'react'
-import { SlideCard } from './slide-card/SlideCard'
+import { useEffect, useRef, useState } from 'react'
+import { Card } from '../../card/Card'
+import { ReactComponent as Right } from '../../../assets/arrow-right.svg'
+import { ReactComponent as Left } from '../../../assets/arrow-left.svg'
 
-export function Slide({ parentRef, content }) {
+export function Slide({ parentRef, data }) {
 	const wrapper = useRef(null)
 	const slide = useRef(null)
-	let slideImgs
+	const nextBtn = useRef(null)
+	const prevBtn = useRef(null)
 
 	const slidePos = {
 		initial: 0,
@@ -14,17 +17,29 @@ export function Slide({ parentRef, content }) {
 		movePosition: 0,
 		index: 0,
 	}
+	// const [slidePos, setSlidePos] = useState({
+	// 	initial: 0,
+	// 	final: 0,
+	// 	movement: 0,
+	// 	movePosition: 0,
+	// 	index: 0,
+	// })
 
+	let slideImgs
 	let imgsPos
 
 	function onStart(event) {
 		transition(false)
-		slidePos.initial = event.clientX
+		if (event.type === 'mousedown') slidePos.initial = event.clientX
+		else slidePos.initial = event.changedTouches[0].clientX
 		wrapper.current.addEventListener('mousemove', onMove)
+		wrapper.current.addEventListener('touchmove', onMove)
 	}
 
 	function onMove(event) {
-		const movement = updatePosition(event.clientX)
+		const pointerPosition =
+			event.type === 'mousemove' ? event.clientX : event.changedTouches[0].clientX
+		const movement = updatePosition(pointerPosition)
 		slideMove(movement)
 	}
 
@@ -55,7 +70,9 @@ export function Slide({ parentRef, content }) {
 
 	function setSlideEvents() {
 		slide.current.addEventListener('mousedown', onStart)
+		slide.current.addEventListener('touchstart', onStart)
 		slide.current.addEventListener('mouseup', onEnd)
+		slide.current.addEventListener('touchend', onEnd)
 	}
 
 	function getImgsPos() {
@@ -80,14 +97,24 @@ export function Slide({ parentRef, content }) {
 		slideMove(pos)
 	}
 
+	function handleDirection(direction) {
+		slideImgs = [...slide.current.children[0].children]
+		if (direction == 'left') {
+			transition(true)
+			return changeIndexPos(slidePos.index - 1)
+		} else if (direction == 'right') {
+			transition(true)
+			return changeIndexPos(slidePos.index + 1)
+		}
+	}
+
 	useEffect(() => {
 		if (slide.current) {
 			slideImgs = [...slide.current.children[0].children]
+			checkSlideImgs()
 			setSlideEvents()
 			changeIndexPos(0)
 		}
-
-		if (cards.current) checkSlideImgs()
 	}, [])
 
 	const cards = useRef(null)
@@ -114,13 +141,27 @@ export function Slide({ parentRef, content }) {
 		<div className={styles.wrapper} ref={wrapper}>
 			<div className={styles.slide} ref={slide}>
 				<ul className={styles.cards} ref={cards}>
-					{content.map((item, i) => (
+					{data.map((item, i) => (
 						<li key={i + 34} className={styles.card}>
-							<SlideCard item={item} />
+							<Card item={item} />
 						</li>
 					))}
 				</ul>
 			</div>
+			<button
+				className={styles.prevBtn}
+				ref={prevBtn}
+				onClick={() => handleDirection('left')}
+			>
+				<Left />
+			</button>
+			<button
+				className={styles.nextBtn}
+				ref={nextBtn}
+				onClick={() => handleDirection('right')}
+			>
+				<Right />
+			</button>
 		</div>
 	)
 }

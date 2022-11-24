@@ -1,0 +1,43 @@
+.wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
+	overflow: hidden;
+
+	.skeleton {
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(
+			90deg,
+			#ff43881e 0px,
+			#ff438850 50%,
+			#ff43881e 100%
+		);
+		background-size: 200%;
+		animation: skeleton 1.5s infinite linear;
+	}
+
+	.img {
+		opacity: 0;
+		animation: showImg 0.2s forwards;
+	}
+}
+
+@keyframes skeleton {
+	0% {
+		background-position: 0%;
+	}
+	100% {
+		background-position: 400%;
+	}
+}
+
+@keyframes showImg {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

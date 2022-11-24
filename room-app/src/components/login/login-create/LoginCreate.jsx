@@ -12,10 +12,10 @@ import { fetchUser } from '../../../store/user'
 import { updateToken } from '../../../store/token'
 
 export function LoginCreate() {
-	const name = useForm()
-	const address = useForm()
-	const email = useForm()
-	const password = useForm()
+	const name = useForm('name')
+	const address = useForm('address')
+	const email = useForm('email')
+	const password = useForm('')
 	const { error, loading, request } = useFetch()
 	const navigate = useNavigate()
 	const { user } = useSelector((state) => state)
@@ -103,13 +103,13 @@ export function LoginCreate() {
 				</div>
 				<NavLink className="formForgotPass">Esqueceu a senha?</NavLink>
 				{error && <Error error={error} />}
-				{loading ? (
+				{!loading ? (
 					<Button.root className="formBtn" disabled>
 						<Button.text text="Criando..." />
 					</Button.root>
 				) : (
 					<Button.root className="formBtn">
-						<Button.text text="Criar" />
+						<Button.text text="Criar Conta" />
 					</Button.root>
 				)}
 			</form>

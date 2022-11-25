@@ -45,8 +45,8 @@ export function LoginCreate() {
 				)
 				const newToken = user.data?.token
 				window.localStorage.setItem('token', newToken)
-				navigate('/')
 				await dispatch(updateToken(newToken))
+				navigate('/')
 			}
 		}
 	}

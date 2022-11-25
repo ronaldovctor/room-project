@@ -6,7 +6,7 @@ export const VALIDATE_TOKEN = (token) => {
 		options: {
 			method: 'POST',
 			headers: {
-				Authorization: `Bearer ${token}`,
+				Authorization: `${token}`,
 			},
 		},
 	}
@@ -29,6 +29,10 @@ export const USER_EDIT = (user) => {
 	return {
 		url: `${API_URL}/user/edit`,
 		options: {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 			body: JSON.stringify(user),
 		},
 	}

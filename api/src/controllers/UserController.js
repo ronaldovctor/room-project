@@ -45,8 +45,9 @@ const controller = {
 		try {
 			const { id, name, email, address, password } = req.body
 			const user = await User.findById(id).lean().exec()
+			const emailExists = await User.findOne({ email }).exec()
+			const alreadyExists = emailExists.id != id
 
-			const alreadyExists = await User.findOne({ email }).exec()
 			const checkUser = password == '' || password == null || !user
 			if (!alreadyExists) {
 				if (!checkUser) {

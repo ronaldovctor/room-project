@@ -14,14 +14,18 @@ const types = {
 		message: '',
 	},
 	address: {
-		regex: /^[A-Z]{2}(?:,\s|\s)(?:\w+)(?:,\s|\s)Rua.+(?:,\s|\s)[N-n]°\s\d/i,
+		regex: /^[A-Z]{2}(?:,\s|\s)(?:\w+)(?:,\s|\s)Rua.+(?:,\s|\s)[N-n]°?\s\d/i,
 		message: 'Siga o padrão (Sigla, Cidade, Rua, Número)',
 	},
 }
 
-function useForm(type) {
+function useForm(type, initalValue) {
 	const [value, setValue] = useState('')
 	const [error, setError] = useState(null)
+
+	useState(() => {
+		if (initalValue) setValue(initalValue)
+	}, [])
 
 	function validate(val) {
 		if (!val.length) {

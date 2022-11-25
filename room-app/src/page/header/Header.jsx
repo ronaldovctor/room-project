@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Heart, CaretDown } from 'phosphor-react'
 import styles from './Header.module.scss'
 
@@ -26,6 +26,8 @@ export function Header() {
 	const [isCategoriesOpen, setIsCategoriesOpen] = useState(false)
 	const [isAccountOpen, setIsAccountOpen] = useState(false)
 	const [isExploreOpen, setIsExploreOpen] = useState(false)
+
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		isExploreOpen == false && setIsCategoriesOpen(false)
@@ -94,7 +96,7 @@ export function Header() {
 							/>
 						</li>
 					</ul>
-					<div className={styles.logo}>
+					<div className={styles.logo} onClick={() => navigate('/login/editar')}>
 						<Logo />
 					</div>
 					<div>

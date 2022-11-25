@@ -9,6 +9,7 @@ import { fetchUser } from '../../../store/user'
 import { updateToken } from '../../../store/token'
 import { Error } from '../../helper/error/Error'
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 export function LoginForm() {
 	const email = useForm('email')
@@ -30,12 +31,19 @@ export function LoginForm() {
 					password: password.value,
 				})
 			)
-			const newToken = user.data?.token
-			window.localStorage.setItem('token', newToken)
-			navigate('/')
-			await dispatch(updateToken(newToken))
 		}
 	}
+
+	function setToken() {
+		const newToken = user.data?.token
+		window.localStorage.setItem('token', newToken)
+		dispatch(updateToken(newToken))
+		if (user.data) navigate('/')
+	}
+
+	useEffect(() => {
+		setToken()
+	}, [user.data])
 
 	return (
 		<>

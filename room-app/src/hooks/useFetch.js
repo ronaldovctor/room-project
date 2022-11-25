@@ -14,13 +14,13 @@ function useFetch() {
 			setError(null)
 			response = await fetch(url, options)
 			json = await response.json()
-			if (response.ok === false) {
+			if (!response.ok) {
 				throw new Error(json.message)
 			}
-		} catch (error) {
-			console.log('sssss')
+		} catch (err) {
+			console.log(err)
+			setError(err.message)
 			json = null
-			setError(error.message)
 		} finally {
 			setData(json)
 			setLoading(false)

@@ -1,0 +1,39 @@
+.profile {
+	display: grid;
+	justify-content: center;
+	width: 100%;
+	min-height: 100vh;
+
+	.infos {
+		background: rgb(0, 0, 0, 0.25);
+		border-radius: 3px;
+		padding: 2.5rem;
+		width: 27.5rem;
+		height: fit-content;
+		margin-top: 10rem;
+		color: white;
+
+		svg {
+			display: block;
+			margin-inline: auto;
+			margin-bottom: 3rem;
+		}
+
+		.field {
+			font-size: 1.25rem;
+			letter-spacing: var(--letter-spacing-1);
+
+			& + .field {
+				margin-top: 0.75rem;
+			}
+
+			p {
+				color: var(--white-c2);
+
+				span {
+					color: var(--white-c1);
+				}
+			}
+		}
+	}
+}

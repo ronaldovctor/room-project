@@ -6,6 +6,7 @@ import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { LoginCreate } from './login-create/LoginCreate'
 import { LoginEdit } from './login-edit/LoginEdit'
 import { useEffect } from 'react'
+import { NotFound } from '../../page/not-found/NotFound'
 
 export function Login({ updateBg }) {
 	useEffect(() => {
@@ -20,6 +21,7 @@ export function Login({ updateBg }) {
 					<Route path="/" element={<LoginForm />} />
 					<Route path="/criar" element={<LoginCreate />} />
 					<Route path="/editar" element={<LoginEdit />} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</div>
 		</section>

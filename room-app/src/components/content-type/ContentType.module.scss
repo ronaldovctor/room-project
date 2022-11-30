@@ -1,0 +1,36 @@
+.contentType {
+	max-width: 100%;
+	min-height: 100vh;
+	padding: 5rem 2.5rem 3rem 2.5rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr;
+
+	margin: 0 auto;
+
+	.titleType {
+		color: var(--white-c1);
+	}
+
+	.cards {
+		display: grid;
+		flex-wrap: wrap;
+		align-self: start;
+		grid-template-columns: repeat(auto-fill, minmax(19rem, auto));
+		gap: 1.5rem;
+		padding: 10px;
+
+		.card {
+			width: 100%;
+			height: 11.75rem;
+			border-radius: 3px;
+			position: relative;
+			transition: 0.2s;
+
+			&:hover {
+				transform: scale(1.15);
+				z-index: 10;
+			}
+		}
+	}
+}

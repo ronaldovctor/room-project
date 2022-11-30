@@ -10,14 +10,10 @@ const token = createAsyncSlice({
 		},
 	},
 	fetchConfig: (token) => VALIDATE_TOKEN(token),
-	reducers: {
-		updateToken(state, action) {
-			state.data.token = action.payload
-		},
-	},
 })
 
 export const { updateToken } = token.actions
+export const { resetState: resetTokenState } = token.actions
 
 export const fetchToken = token.asyncAction
 export default token.reducer

@@ -6,6 +6,7 @@ import { Slide } from '../../components/slides/slide/Slide'
 import { Tabs } from '../../components/tabs/Tabs'
 import { CardEpisode } from '../../components/card-episode/CardEpisode'
 import { Episodes } from '../../components/episodes/Episodes'
+import { Loading } from '../../components/helper/loading/Loading'
 
 export function HomeContent({ updateBg }) {
 	const tab = useRef(null)
@@ -24,7 +25,7 @@ export function HomeContent({ updateBg }) {
 		fetchContent()
 	}, [])
 
-	if (loading) return null
+	if (loading) return <Loading />
 	return (
 		<>
 			<Header />

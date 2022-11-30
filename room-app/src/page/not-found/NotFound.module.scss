@@ -1,0 +1,42 @@
+.notFound {
+	min-height: 100vh;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+
+	.description {
+		background: rgb(0, 0, 0, 0.25);
+		margin-top: 10rem;
+		border-radius: 3px;
+		padding: 2.5rem;
+		width: 27.5rem;
+		height: fit-content;
+		text-align: center;
+
+		h1 {
+			color: var(--pink-c1);
+			text-align: center;
+			font-size: 3rem;
+			font-weight: 700;
+			letter-spacing: var(--letter-spacing-1);
+		}
+
+		p {
+			margin-top: 1rem;
+			color: var(--white-c1);
+			font-size: 1.25rem;
+			font-weight: lighter;
+
+			a {
+				display: inline-block;
+				font-weight: 700;
+				color: var(--white-c2);
+				text-decoration: underline;
+
+				&:hover {
+					color: var(--white-c1);
+				}
+			}
+		}
+	}
+}

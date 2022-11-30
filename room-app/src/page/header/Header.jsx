@@ -8,20 +8,59 @@ import { Dropdown } from '../../components/dropdown/Dropdown'
 import { useState } from 'react'
 import { Search } from '../../components/search/Search'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 export function Header() {
+	const { data } = useSelector((state) => state.user)
+
 	const categoryOptions = [
-		'Ação e aventura',
-		'Comédia',
-		'Drama',
-		'Documentário',
-		'Fantasia',
-		'Terror',
-		'Suspense',
-		'Lançamentos',
-		'Novas adições',
+		{
+			label: 'Ação e aventura',
+			link: '/category/?search=actionAdventure',
+		},
+		{
+			label: 'Comédia',
+			link: '/category/?search=comedy',
+		},
+		{
+			label: 'Drama',
+			link: '/category/?search=drama',
+		},
+		{
+			label: 'Documentário',
+			link: '/category/?search=documentary',
+		},
+		{
+			label: 'Fantasia',
+			link: '/category/?search=fantasy',
+		},
+		{
+			label: 'Terror',
+			link: '/category/?search=terror',
+		},
+		{
+			label: 'Suspense',
+			link: '/category/?search=suspense',
+		},
+		{
+			label: 'Lançamentos',
+			link: '/category/?search=all',
+		},
+		{
+			label: 'Novas adições',
+			link: '/category/?search=all',
+		},
 	]
-	const accountOptions = ['Minha conta', 'Sair']
+	const accountOptions = [
+		{
+			label: 'Minha conta',
+			link: '/profile',
+		},
+		{
+			label: 'Sair',
+			link: '/sair',
+		},
+	]
 
 	const [isCategoriesOpen, setIsCategoriesOpen] = useState(false)
 	const [isAccountOpen, setIsAccountOpen] = useState(false)
@@ -37,7 +76,7 @@ export function Header() {
 		<header className={styles.header}>
 			<nav className={`container ${styles.nav}`}>
 				<div className={styles.navFav}>
-					<NavLink to="/favoritos">
+					<NavLink to="/category/?search=favorites">
 						<Heart size={24} weight="fill" color="#fb2576" />
 						<span>Favoritos</span>
 					</NavLink>
@@ -57,20 +96,20 @@ export function Header() {
 					</div>
 					<ul className={`${styles.options} ${isExploreOpen ? styles.active : ''}`}>
 						<li>
-							<NavLink to="/series" className={styles.optionName}>
+							<NavLink to="/category/?search=series" className={styles.optionName}>
 								Séries
 							</NavLink>
 						</li>
 						<li>
-							<Separator />
+							<Separator className={styles.sep} />
 						</li>
 						<li>
-							<NavLink to="/filmes" className={styles.optionName}>
+							<NavLink to="/category/?search=movies" className={styles.optionName}>
 								Filmes
 							</NavLink>
 						</li>
 						<li>
-							<Separator />
+							<Separator className={styles.sep} />
 						</li>
 						<li
 							style={{ position: 'relative' }}
@@ -96,7 +135,7 @@ export function Header() {
 							/>
 						</li>
 					</ul>
-					<div className={styles.logo} onClick={() => navigate('/login/editar')}>
+					<div className={styles.logo} onClick={() => navigate('/content')}>
 						<Logo />
 					</div>
 					<div>
@@ -125,7 +164,7 @@ export function Header() {
 									isAccountOpen ? styles.active : ''
 								}`}
 							>
-								Ronaldo V.
+								{data.name}
 							</p>
 							<CaretDown weight="bold" size={22} color={'#fff'} />
 							<Dropdown

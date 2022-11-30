@@ -1,9 +1,9 @@
 import styles from './Slide.module.scss'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
 import { Card } from '../../card/Card'
 import { ReactComponent as Right } from '../../../assets/arrow-right.svg'
 import { ReactComponent as Left } from '../../../assets/arrow-left.svg'
-
 export function Slide({ parentRef, data }) {
 	const wrapper = useRef(null)
 	const slide = useRef(null)
@@ -17,6 +17,7 @@ export function Slide({ parentRef, data }) {
 		movePosition: 0,
 		index: 0,
 	}
+
 	// const [slidePos, setSlidePos] = useState({
 	// 	initial: 0,
 	// 	final: 0,

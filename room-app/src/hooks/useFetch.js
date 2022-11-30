@@ -22,8 +22,8 @@ function useFetch() {
 			setError(err.message)
 			json = null
 		} finally {
-			setData(json)
 			setLoading(false)
+			setData(json)
 			return {
 				response,
 				json,

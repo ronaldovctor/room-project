@@ -6,7 +6,6 @@ import { Button } from '../../forms/button/Button'
 import useForm from '../../../hooks/useForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUser } from '../../../store/user'
-import { updateToken } from '../../../store/token'
 import { Error } from '../../helper/error/Error'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -15,11 +14,11 @@ export function LoginForm() {
 	const email = useForm('email')
 	const password = useForm()
 
-	const { token, user } = useSelector((state) => state)
+	const { user } = useSelector((state) => state)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
-	const error = token.error || user.error
+	const error = user.error
 	const loading = user.loading
 
 	async function handleSubmit(event) {
@@ -37,13 +36,13 @@ export function LoginForm() {
 	function setToken() {
 		const newToken = user.data?.token
 		window.localStorage.setItem('token', newToken)
-		dispatch(updateToken(newToken))
+		window.localStorage.setItem('email', user.data?.email)
 		if (user.data) navigate('/')
 	}
 
 	useEffect(() => {
-		setToken()
-	}, [user.data])
+		if (user.data) setToken()
+	}, [user])
 
 	return (
 		<>

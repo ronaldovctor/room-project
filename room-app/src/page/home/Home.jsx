@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { MainContent } from '../../components/main-content/MainContent'
 import { Slides } from '../../components/slides/Slides'
+import { Loading } from '../../components/helper/loading/Loading'
 import useFetch from '../../hooks/useFetch'
 import { Header } from '../header/Header'
 
@@ -27,7 +28,7 @@ export function Home({ updateBg }) {
 		fetchContent()
 	}, [])
 
-	if (loading) return null
+	if (loading) return <Loading />
 	return (
 		<>
 			<Header />

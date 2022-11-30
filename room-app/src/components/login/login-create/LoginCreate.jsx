@@ -9,7 +9,6 @@ import { Error } from '../../helper/error/Error'
 import useFetch from '../../../hooks/useFetch'
 import { USER_CREATE } from '../../../api/api'
 import { fetchUser } from '../../../store/user'
-import { updateToken } from '../../../store/token'
 
 export function LoginCreate() {
 	const name = useForm('name')

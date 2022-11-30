@@ -15,7 +15,6 @@
 
 .header {
 	position: fixed;
-	margin: 0 auto;
 	margin-top: 0.75rem;
 	width: 100%;
 	z-index: 1000;
@@ -26,9 +25,7 @@
 		justify-content: space-between;
 		height: 3.625rem;
 		width: calc(100% - 100px);
-		max-width: 1600px;
 		min-width: 800px;
-		margin: 0 auto;
 
 		.navFav,
 		.navMain,
@@ -234,21 +231,14 @@
 			svg {
 				visibility: hidden !important;
 			}
+
+			.user {
+				height: 2.75rem !important;
+			}
 		}
 
 		.moveDropDown {
-			top: 4.65rem;
-			left: -3.625rem;
-			animation: bottomDropdown 0.15s linear !important;
-		}
-
-		@keyframes bottomDropdown {
-			0% {
-				top: 4.325rem;
-			}
-			100% {
-				top: 4.65rem;
-			}
+			left: -1.5rem;
 		}
 	}
 }
@@ -285,7 +275,7 @@
 			animation: bottomDropdown 0.15s linear;
 
 			li {
-				&:nth-child(even) {
+				&:has(.sep) {
 					display: none;
 				}
 

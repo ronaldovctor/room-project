@@ -59,3 +59,31 @@ export const USER_CREATE = (userInfos) => {
 		},
 	}
 }
+
+export const ADD_FAV = (user, favorite) => {
+	return {
+		url: `${API_URL}/favorite/add`,
+		options: {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: window.localStorage.getItem('token'),
+			},
+			body: JSON.stringify({ ...user, favorite }),
+		},
+	}
+}
+
+export const REMOVE_FAV = (user, favorite) => {
+	return {
+		url: `${API_URL}/favorite/remove`,
+		options: {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: window.localStorage.getItem('token'),
+			},
+			body: JSON.stringify({ ...user, favorite }),
+		},
+	}
+}

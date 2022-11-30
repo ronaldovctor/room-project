@@ -116,11 +116,21 @@
 	}
 }
 
-li:has(:hover) > .cardImg {
+li:has(:hover) > .cardImg,
+div:has(:hover) > .cardImg {
 	filter: drop-shadow(0px 0px 5px var(--pink-c1));
 
 	.extras {
 		display: flex;
 		outline: 2px solid black;
+	}
+}
+
+@keyframes showFav {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }

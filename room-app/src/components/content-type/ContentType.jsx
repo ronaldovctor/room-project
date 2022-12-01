@@ -5,16 +5,13 @@ import styles from './ContentType.module.scss'
 import data from '../../../public/data.json'
 import { useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Loading } from '../helper/loading/Loading'
+import { useSelector } from 'react-redux'
 
 export function ContentType({ updateBg }) {
 	const { user } = useSelector((state) => state)
-	const dispatch = useDispatch()
 
 	const [searchParams, setSearchParams] = useSearchParams()
-	// const [filter, setFilter] = useState()
-	const [filteredData, setFilteredData] = useState()
+	const [filteredData, setFilteredData] = useState([])
 
 	function filterData(filt) {
 		switch (filt) {
@@ -34,14 +31,15 @@ export function ContentType({ updateBg }) {
 	async function filter(fil) {
 		switch (fil) {
 			case 'favorites':
-				await setFilteredData(
-					data.filter((item) => user.data?.favorites.includes(item.id))
-				)
+				if (user.data?.favorites)
+					await setFilteredData(
+						data.filter((item) => user.data?.favorites.includes(item.id))
+					)
+				else setFilteredData([])
 				break
 			case 'fantasy':
 				await setFilteredData(data.filter((item) => item.category == 'fantasy'))
 				break
-
 			default:
 				await setFilteredData(data)
 				break
@@ -50,12 +48,8 @@ export function ContentType({ updateBg }) {
 
 	useEffect(() => {
 		updateBg('home')
-		// setFilter(searchParams.get('search'))
-		// setFilteredData([])
 		filterData(searchParams.get('search'))
 	}, [searchParams])
-
-	if (!filteredData) return <Loading />
 
 	return (
 		<>
@@ -63,11 +57,15 @@ export function ContentType({ updateBg }) {
 			<section className={styles.contentType}>
 				<h1 className={styles.titleType}>Título página</h1>
 				<div className={styles.cards}>
-					{filteredData.map((item, index) => (
-						<div key={index + 76} className={styles.card}>
-							<Card item={item} />
-						</div>
-					))}
+					{filteredData.length ? (
+						filteredData.map((item, index) => (
+							<div key={index + 76} className={styles.card}>
+								<Card item={item} />
+							</div>
+						))
+					) : (
+						<h2>Não há itens adicionados.</h2>
+					)}
 				</div>
 			</section>
 		</>

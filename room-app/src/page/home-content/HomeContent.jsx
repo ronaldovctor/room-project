@@ -4,28 +4,24 @@ import { MainContent } from '../../components/main-content/MainContent'
 import { Header } from '../header/Header'
 import { Slide } from '../../components/slides/slide/Slide'
 import { Tabs } from '../../components/tabs/Tabs'
-import { CardEpisode } from '../../components/card-episode/CardEpisode'
 import { Episodes } from '../../components/episodes/Episodes'
 import { Loading } from '../../components/helper/loading/Loading'
+import data from '../../../public/data.json'
+import { useSearchParams } from 'react-router-dom'
 
 export function HomeContent({ updateBg }) {
 	const tab = useRef(null)
 
 	const [main, setMain] = useState()
-	const [newData, setNewData] = useState()
-	const { loading, data, request } = useFetch()
-	async function fetchContent() {
-		const { json } = await request('./data.json')
-		setNewData(json)
-		setMain(json[0])
-	}
+	const [searchParams, setSearchParams] = useSearchParams()
 
 	useEffect(() => {
+		const item = searchParams.get('search')
 		updateBg('home')
-		fetchContent()
-	}, [])
+		setMain(data[item])
+	}, [searchParams])
 
-	if (loading) return <Loading />
+	if (!main) return <Loading />
 	return (
 		<>
 			<Header />
@@ -33,7 +29,7 @@ export function HomeContent({ updateBg }) {
 			<Tabs
 				ref={tab}
 				titles={['Relacionados', 'Detalhes']}
-				contents={[<Slide parentRef={tab} data={newData} />, <Episodes />]}
+				contents={[<Slide parentRef={tab} data={data} />, <Episodes />]}
 			/>
 		</>
 	)

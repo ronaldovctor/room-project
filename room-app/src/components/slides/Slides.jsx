@@ -9,10 +9,10 @@ export function Slides({ categories, data }) {
 	return (
 		<section className={`${styles.slides}`} ref={slides}>
 			{categories.map((categorie) => (
-				<div key={categorie} className={styles.categorie}>
+				<div key={categorie.label} className={styles.categorie}>
 					<div className={styles.name}>
-						<h1>{categorie}</h1>
-						<NavLink>veja mais</NavLink>
+						<h1>{categorie.label}</h1>
+						<NavLink to={categorie.link}>veja mais</NavLink>
 					</div>
 					<Slide parentRef={slides} data={data} />
 				</div>

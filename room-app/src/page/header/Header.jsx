@@ -135,7 +135,7 @@ export function Header() {
 							/>
 						</li>
 					</ul>
-					<div className={styles.logo} onClick={() => navigate('/content')}>
+					<div className={styles.logo} onClick={() => navigate('/')}>
 						<Logo />
 					</div>
 					<div>

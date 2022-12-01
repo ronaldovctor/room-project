@@ -8,12 +8,38 @@ import { Header } from '../header/Header'
 
 export function Home({ updateBg }) {
 	const slidesCategories = [
-		'Ação',
-		'Ficção',
-		'Suspense',
-		'Terror',
-		'Romance',
-		'Fantasia',
+		{
+			label: 'Ação',
+			link: '/category/?search=action',
+		},
+		{
+			label: 'Aventura',
+			link: '/category/?search=adventure',
+		},
+		{
+			label: 'Comédia',
+			link: '/category/?search=comedy',
+		},
+		{
+			label: 'Drama',
+			link: '/category/?search=drama',
+		},
+		{
+			label: 'Documentário',
+			link: '/category/?search=documentary',
+		},
+		{
+			label: 'Fantasia',
+			link: '/category/?search=fantasy',
+		},
+		{
+			label: 'Terror',
+			link: '/category/?search=terror',
+		},
+		{
+			label: 'Suspense',
+			link: '/category/?search=suspense',
+		},
 	]
 
 	const [main, setMain] = useState()

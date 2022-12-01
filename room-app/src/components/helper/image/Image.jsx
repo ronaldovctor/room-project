@@ -9,7 +9,7 @@ export function Image({ alt = 'Card img', src }) {
 	}
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={`${styles.wrapper}`}>
 			{skeleton && <div className={styles.skeleton}></div>}
 			<img src={src} alt={alt} onLoad={handleLoad} />
 		</div>

@@ -72,7 +72,7 @@ export function LoginForm() {
 						/>
 					</Input.Root>
 				</div>
-				<NavLink className="formForgotPass">Esqueceu a senha?</NavLink>
+				{/* <NavLink className="formForgotPass">Esqueceu a senha?</NavLink> */}
 				{error && <Error error={'Dados incorretos.'} />}
 				{loading ? (
 					<Button.root className="formBtn" disabled>

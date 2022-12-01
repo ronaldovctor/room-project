@@ -10,11 +10,16 @@ import { ADD_FAV, REMOVE_FAV } from '../../api/api'
 import { useDispatch, useSelector } from 'react-redux'
 import useFetch from '../../hooks/useFetch'
 import { updateFav } from '../../store/user'
+import { useNavigate } from 'react-router-dom'
+import { useRef } from 'react'
 
 export function Card({ item }) {
 	const { user } = useSelector((state) => state)
 	const dispatch = useDispatch()
 	const { request } = useFetch()
+	const navigate = useNavigate()
+
+	const card = useRef(null)
 
 	const favorites = user.data?.favorites ? user.data?.favorites : []
 	const [favState, setFavState] = useState()
@@ -26,7 +31,8 @@ export function Card({ item }) {
 			favorite
 		)
 		const { error } = await request(url, options)
-		dispatch(updateFav([...user.data?.favorites, favorite]))
+		if (user.data?.favorites) dispatch(updateFav([...user.data?.favorites, favorite]))
+		else dispatch(updateFav([favorite]))
 		if (error) dispatch(userLogout())
 	}
 
@@ -51,8 +57,12 @@ export function Card({ item }) {
 		}
 	}
 
+	function handlePlay(item) {
+		navigate(`/content/?search=${item}`)
+	}
+
 	useEffect(() => {
-		favorites.includes(item.id) && setFavState(favorites)
+		favorites.includes(item.id) && setFavState(true)
 	}, [favorites])
 
 	return (
@@ -61,11 +71,21 @@ export function Card({ item }) {
 			<div className={styles.rTag}>
 				<R />
 			</div>
-			<div className={styles.extras}>
+			<div
+				className={styles.extras}
+				onClick={function (event) {
+					if (event.target == card.current) navigate(`/content/?search=${item.id}`)
+				}}
+				ref={card}
+			>
 				<div className={styles.extraDescription}>
 					<h2 className={styles.title}>{item.name}</h2>
 					<div className={styles.options}>
-						<Play weight="fill" alt="Assistir" />
+						<Play
+							weight="fill"
+							alt="Assistir"
+							onClick={() => handlePlay(item.id)}
+						/>
 						{favState ? (
 							<Check
 								weight="fill"

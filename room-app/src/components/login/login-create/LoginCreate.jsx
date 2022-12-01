@@ -43,8 +43,9 @@ export function LoginCreate() {
 					})
 				)
 				const newToken = user.data?.token
+				const email = user.data?.email
 				window.localStorage.setItem('token', newToken)
-				await dispatch(updateToken(newToken))
+				window.localStorage.setItem('email', email)
 				navigate('/')
 			}
 		}

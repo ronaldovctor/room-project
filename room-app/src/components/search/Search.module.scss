@@ -35,4 +35,42 @@
 		color: var(--white-c1);
 		border-radius: 0 3px 3px 0;
 	}
+
+	.searchResult {
+		position: absolute;
+		background-color: var(--black-c1);
+		top: 2.75rem;
+		left: 0;
+		width: 100%;
+		border-radius: 3px;
+
+		.term {
+			padding: 0.5rem 0.75rem;
+			position: relative;
+
+			& + li::before {
+				content: '';
+				position: absolute;
+				top: -1px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 90%;
+				height: 1px;
+				background-color: var(--pink-c1);
+			}
+
+			a {
+				color: var(--white-c1);
+				font-size: 1rem;
+			}
+
+			&:hover {
+				background-color: var(--white-c1);
+
+				a {
+					color: var(--black-c1);
+				}
+			}
+		}
+	}
 }

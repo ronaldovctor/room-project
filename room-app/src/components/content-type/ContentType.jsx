@@ -12,18 +12,40 @@ export function ContentType({ updateBg }) {
 
 	const [searchParams, setSearchParams] = useSearchParams()
 	const [filteredData, setFilteredData] = useState([])
+	const [title, setTitle] = useState()
+
+	const titles = {
+		favorites: 'Favoritos',
+		fantasy: 'Fantasia',
+		action: 'Ação',
+		adventure: 'Aventura',
+		actionAdventure: 'Ação e Aventura',
+		comedy: 'Comédia',
+		drama: 'Drama',
+		documentary: 'Documentário',
+		terror: 'Terror',
+		suspense: 'Suspense',
+		movies: 'Filmes',
+		series: 'Séries',
+	}
 
 	function filterData(filt) {
 		switch (filt) {
 			case 'favorites':
 				filter('favorites')
-				break
 			case 'fantasy':
-				filter('fantasy')
+			case 'action':
+			case 'adventure':
+			case 'comedy':
+			case 'drama':
+			case 'documentary':
+			case 'terror':
+			case 'suspense':
+			case 'all':
+				filter(filt)
 				break
-
 			default:
-				filter('all')
+				filter()
 				break
 		}
 	}
@@ -38,24 +60,43 @@ export function ContentType({ updateBg }) {
 				else setFilteredData([])
 				break
 			case 'fantasy':
-				await setFilteredData(data.filter((item) => item.category == 'fantasy'))
+			case 'action':
+			case 'adventure':
+			case 'comedy':
+			case 'drama':
+			case 'documentary':
+			case 'terror':
+			case 'suspense':
+				await setFilteredData(data.filter((item) => item.category == fil))
+				break
+			case 'all':
+				await setFilteredData(data)
 				break
 			default:
-				await setFilteredData(data)
+				const related = data.filter((item) =>
+					item.name.toLowerCase().includes(searchParams.get('search').toLowerCase())
+				)
+				await setFilteredData(related)
 				break
 		}
 	}
 
 	useEffect(() => {
-		updateBg('home')
-		filterData(searchParams.get('search'))
+		const actualSearch = searchParams.get('search')
+		filterData(actualSearch)
+		if (titles[actualSearch]) setTitle(titles[actualSearch])
+		else setTitle(`Resultado da busca para: "${actualSearch}"`)
 	}, [searchParams])
+
+	useEffect(() => {
+		updateBg('home')
+	}, [])
 
 	return (
 		<>
 			<Header />
 			<section className={styles.contentType}>
-				<h1 className={styles.titleType}>Título página</h1>
+				<h1 className={styles.titleType}>{title}</h1>
 				<div className={styles.cards}>
 					{filteredData.length ? (
 						filteredData.map((item, index) => (

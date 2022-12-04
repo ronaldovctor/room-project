@@ -6,6 +6,7 @@ import { Slide } from '../../components/slides/slide/Slide'
 import { Tabs } from '../../components/tabs/Tabs'
 import { Episodes } from '../../components/episodes/Episodes'
 import { Loading } from '../../components/helper/loading/Loading'
+import { VideoModal } from '../../components/video-modal/VideoModal'
 import data from '../../../public/data.json'
 import { useSearchParams } from 'react-router-dom'
 
@@ -31,6 +32,7 @@ export function HomeContent({ updateBg }) {
 				titles={['Relacionados', 'Detalhes']}
 				contents={[<Slide parentRef={tab} data={data} />, <Episodes />]}
 			/>
+			{/* <VideoModal /> */}
 		</>
 	)
 }

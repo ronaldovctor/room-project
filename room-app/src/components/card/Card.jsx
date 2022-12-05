@@ -27,19 +27,19 @@ export function Card({ item }) {
 	async function addFav(favorite) {
 		setFavState(true)
 		const { url, options } = ADD_FAV(
-			{ id: user.data?.id, email: user.data?.email },
+			{ id: user.data?._id, email: user.data?.email },
 			favorite
 		)
 		const { error } = await request(url, options)
+		if (error) dispatch(userLogout())
 		if (user.data?.favorites) dispatch(updateFav([...user.data?.favorites, favorite]))
 		else dispatch(updateFav([favorite]))
-		if (error) dispatch(userLogout())
 	}
 
 	async function removeFav(favorite) {
 		setFavState(false)
 		const { url, options } = REMOVE_FAV(
-			{ id: user.data?.id, email: user.data?.email },
+			{ id: user.data?._id, email: user.data?.email },
 			favorite
 		)
 		const { error } = await request(url, options)

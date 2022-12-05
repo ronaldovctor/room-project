@@ -1,5 +1,4 @@
 import styles from './Search.module.scss'
-import { Dropdown } from '../dropdown/Dropdown'
 import data from '../../../public/data.json'
 
 import { MagnifyingGlass } from 'phosphor-react'

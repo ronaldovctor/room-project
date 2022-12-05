@@ -61,6 +61,7 @@ export const USER_CREATE = (userInfos) => {
 }
 
 export const ADD_FAV = (user, favorite) => {
+	console.log(user)
 	return {
 		url: `${API_URL}/favorite/add`,
 		options: {

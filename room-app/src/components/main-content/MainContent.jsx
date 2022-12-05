@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { ADD_FAV, REMOVE_FAV } from '../../api/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateFav, userLogout } from '../../store/user'
+import { openVideoModal, closeVideoModal } from '../../store/ui'
 import useFetch from '../../hooks/useFetch'
 
 export function MainContent({ data }) {
@@ -44,7 +45,7 @@ export function MainContent({ data }) {
 	async function addFav(favorite) {
 		setFavState(true)
 		const { url, options } = ADD_FAV(
-			{ id: user.data?.id, email: user.data?.email },
+			{ id: user.data?._id, email: user.data?.email },
 			favorite
 		)
 		const { error } = await request(url, options)
@@ -57,7 +58,7 @@ export function MainContent({ data }) {
 	async function removeFav(favorite) {
 		setFavState(false)
 		const { url, options } = REMOVE_FAV(
-			{ id: user.data?.id, email: user.data?.email },
+			{ id: user.data?._id, email: user.data?.email },
 			favorite
 		)
 		const { error } = await request(url, options)
@@ -73,6 +74,10 @@ export function MainContent({ data }) {
 			setFavState(false)
 			removeFav(main.id)
 		}
+	}
+
+	function playVideo() {
+		dispatch(openVideoModal())
 	}
 
 	useEffect(() => {
@@ -105,7 +110,10 @@ export function MainContent({ data }) {
 							<div className={styles.options}>
 								<Button.root
 									size="lg"
-									onClick={() => navigate(`/content/?search=${main.id}`)}
+									onClick={() => {
+										navigate(`/content/?search=${main.id}`)
+										dispatch(openVideoModal())
+									}}
 								>
 									<Button.icon>
 										<Play weight="fill" />

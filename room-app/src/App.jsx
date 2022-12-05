@@ -12,6 +12,7 @@ import { useEffect } from 'react'
 import { autoLogin } from './store/user'
 import { Logout } from './components/logout/Logout'
 import { NotFound } from './page/not-found/NotFound'
+import { VideoModal } from './components/video-modal/VideoModal'
 
 function App() {
 	function updateBg(className) {
@@ -71,6 +72,7 @@ function App() {
 				</div>
 			</BrowserRouter>
 			<Footer />
+			<VideoModal />
 		</div>
 	)
 }
